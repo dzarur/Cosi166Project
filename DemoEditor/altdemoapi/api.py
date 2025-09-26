@@ -4,9 +4,10 @@ import subprocess
 import re
 
 api = FastAPI()
+# add CORS handling to deal with restricted transaction origin
 api.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
                    allow_headers=["*"])
-# add CORS handling to deal with restricted transaction origin
+prompts = []
 
 
 def _clean_extra_nl(lines: str):
@@ -53,3 +54,31 @@ def submit_code(code: dict):
     raw_to_file(code["codeSample"])
     out, err = run_sub_process("test.py")
     return {"status": "received", "out": out, "err": err}
+
+
+@api.put("/api/createProblem")
+def create_problem(new_prompt: dict):
+    """
+    Route for creating new practice problem
+    Server gets problem prompt from front-end
+    :param new_prompt:
+    :return:
+    """
+    global prompts
+    prompts.append(new_prompt["prompt"])
+    return {"status": "received"}
+
+
+@api.get("/api/getProblem")
+def get_problem():
+    """
+    Route for sending practice problem to front end
+    On student front-end requesting prompt
+    :return:
+    """
+    global prompts
+    if len(prompts) > 0:
+        curr_prompt = prompts[-1]
+        return {"status": " :"prompt": curr_prompt}
+    else:
+        return {"status": "queue empty"}
