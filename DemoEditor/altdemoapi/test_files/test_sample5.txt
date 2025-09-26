@@ -1,0 +1,9 @@
+**Problems:**
+
+1. The code directly prints "hello world" without defining a function.
+
+**Skills:**
+
+1. **Function Definition:** Practice defining and using functions to encapsulate code.
+2. **Understanding Requirements:** Focus on translating requirements into code structures, such as functions or classes.
+3. **Syntax Familiarity:** Review function syntax and structure in Python to ensure proper implementation.

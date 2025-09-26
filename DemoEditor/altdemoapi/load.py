@@ -4,6 +4,7 @@ import yaml
 class ErrorTags:
     def __init__(self):
         self.NULL_RESPONSE = "null_response"
+        self.AI_RESPONSE_FORMAT = "ai_response_format"
 
 
 class ConfigTags:
@@ -27,6 +28,7 @@ def load_errors():
     return load("errors.yaml")
 
 
+# meta
 error_tags = ErrorTags()
 config_tags = ConfigTags()
 errors = load_errors()

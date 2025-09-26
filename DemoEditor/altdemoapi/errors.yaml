@@ -1,1 +1,2 @@
 null_response: "Tried parsing null or empty response"
+ai_response_format: "AI response did not match the desired problem/skill format"
