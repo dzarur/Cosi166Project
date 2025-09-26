@@ -1,0 +1,47 @@
+Got it — I’ll point out what’s wrong without fixing it for you, and then suggest some skills you can practice to avoid these mistakes in the future.
+
+Issues in your code:
+
+Function parameter naming
+
+You’re using reserved words (like int) as parameter names. That’s not allowed in Python.
+
+Parameter names should follow the same rules as variable names.
+
+Syntax of function definitions
+
+The way you’re declaring parameters isn’t valid. Python doesn’t allow you to just repeat types in the parameter list.
+
+Printing parameters
+
+You’re trying to print something that’s shadowing a built-in (int), which will confuse both Python and you.
+
+Skills to practice:
+
+Reserved words and built-ins
+
+Learn which names are reserved in Python (like int, str, def, etc.).
+
+Avoid overwriting built-in types and functions.
+
+Function parameters
+
+Practice writing functions with parameters and return values.
+
+Get comfortable with the difference between type annotations and parameter names.
+
+Naming conventions
+
+Use descriptive variable and parameter names.
+
+Stick to snake_case to keep things readable.
+
+Understanding scope and shadowing
+
+Learn what it means to “shadow” a built-in name (e.g., naming something int hides the real int type).
+
+Practice renaming things to avoid conflicts.
+
+Reading error messages
+
+Try running this code in Python — the error message will point you exactly to the syntax issue, which is a great way to learn.

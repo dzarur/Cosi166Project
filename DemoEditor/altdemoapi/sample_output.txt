@@ -1,0 +1,43 @@
+Got it — I’ll point out what’s wrong without fixing it for you, and then suggest some skills you can practice to avoid these mistakes in the future.
+
+Issues in your code:
+
+String formatting – Your string isn’t properly closed, which will cause a syntax error.
+
+Variable naming rules – Identifiers can’t start with a number, and special characters like ; don’t behave the same in Python as in some other languages.
+
+Function calls – You’re trying to call a function that hasn’t been defined yet.
+
+Skills you can work on:
+
+Python syntax basics
+
+Practice writing strings with correct quotation marks.
+
+Learn when parentheses and colons are required.
+
+Valid variable naming
+
+Review rules: variable names can only use letters, digits (not as the first character), and underscores.
+
+Get comfortable with snake_case naming conventions.
+
+Understanding statements and expressions
+
+Python doesn’t use ; at the end of lines (unlike languages like C++ or Java).
+
+Each line is usually a separate statement.
+
+Functions
+
+Learn how to define your own functions with def.
+
+Understand that you can only call functions after they are defined or imported.
+
+Debugging techniques
+
+Read error messages carefully: Python’s tracebacks are very explicit about what went wrong.
+
+Try running small pieces of code step by step to isolate issues.
+
+Would you like me to also suggest a small set of beginner practice exercises targeted at exactly these skills?

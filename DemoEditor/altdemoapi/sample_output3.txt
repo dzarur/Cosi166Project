@@ -1,0 +1,35 @@
+Great question — this is exactly the kind of subtle mistake that happens when you mix up what the instructions are asking with what the code actually does. Let’s go through it.
+
+What’s wrong with your code:
+
+You skipped the function definition.
+
+The instructions asked you to write a function named print_hello_world. Your code just runs print() directly, not inside a function.
+
+The function name is missing.
+
+They specifically wanted a function with that exact name. If you don’t define it, then nothing named print_hello_world exists for Python to call.
+
+Skills to practice:
+
+Defining functions
+
+Get comfortable with def function_name(): ... syntax.
+
+Practice writing functions with and without parameters.
+
+Following instructions literally
+
+Pay attention to exact requirements like function name, what it should print, and whether to return or print.
+
+Practice translating English instructions into Python code.
+
+Understanding scope
+
+Code written inside a function only runs when you call that function. Practice the difference between code that runs immediately and code that runs only when the function is used.
+
+Testing your code
+
+After writing the function, try calling it explicitly (e.g., by its name) to check if it does exactly what was asked.
+
+Would you like me to create a set of small drills where you practice writing tiny functions (like print_hello_world) so you can lock in the pattern?
