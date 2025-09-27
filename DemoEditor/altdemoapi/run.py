@@ -1,5 +1,8 @@
 import uvicorn
 
 if __name__ == "__main__":
-    print("Running demo api with uvicorn")
+    print("""--------------------------\n
+    Running demo api with uvicorn
+    \n----------------------------
+    """)
     uvicorn.run(app="api:api", host="localhost", port=9000, reload=True)

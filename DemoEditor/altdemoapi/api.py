@@ -1,13 +1,21 @@
+"""
+
+"""
+
+__authors__ = ""
+
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import subprocess
 import re
+from session import Session
 
 api = FastAPI()
 # add CORS handling to deal with restricted transaction origin
 api.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
                    allow_headers=["*"])
-prompts = []
+curr_session = Session()
 
 
 def _clean_extra_nl(lines: str):
@@ -64,8 +72,7 @@ def create_problem(new_prompt: dict):
     :param new_prompt:
     :return:
     """
-    global prompts
-    prompts.append(new_prompt["prompt"])
+    curr_session.queue_prompt(new_prompt["prompt"])
     return {"status": "received"}
 
 
@@ -76,9 +83,8 @@ def get_problem():
     On student front-end requesting prompt
     :return:
     """
-    global prompts
-    if len(prompts) > 0:
-        curr_prompt = prompts[-1]
-        return {"status": "success","prompt": curr_prompt}
+    if curr_session.has_prompt():
+        curr_prompt = curr_session.pop_prompt()
+        return {"status": "queue has element", "prompt": curr_prompt}
     else:
         return {"status": "queue empty"}
