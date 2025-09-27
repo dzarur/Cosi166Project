@@ -42,7 +42,7 @@ export default function CodeEditor(){
         height='500px'
         width='500px'
         defaultLanguage='python'
-        defaultValue='// Start coding here!'
+        defaultValue='# Start coding here!'
         theme='vs-dark'
         onMount={handleEditorDidMount}
       />
