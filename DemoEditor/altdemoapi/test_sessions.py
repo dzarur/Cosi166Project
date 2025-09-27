@@ -3,7 +3,7 @@ import ai_utils
 from typing import AnyStr
 
 
-class Session:
+class TestSession:
     """
     Session class for testing
         - Provides manager features for configuration handling
@@ -36,7 +36,7 @@ class Session:
 
 
 if __name__ == "__main__":
-    with Session() as ai_session:
+    with TestSession() as ai_session:
         agent = ai_utils.Agent()
         path = agent.configure_debug_path("test_files", ai_session.new_test_file())
         test_prompt = "Write a function print_hello_world that prints the string \"hello world\""
