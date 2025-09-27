@@ -79,6 +79,6 @@ def get_problem():
     global prompts
     if len(prompts) > 0:
         curr_prompt = prompts[-1]
-        return {"status": " :"prompt": curr_prompt}
+        return {"status": " ","prompt": curr_prompt}
     else:
         return {"status": "queue empty"}
