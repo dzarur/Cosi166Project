@@ -1,8 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Editor from '@monaco-editor/react';
 
 export default function CodeEditor(){
   const editorRef = useRef(null);
+  const [output, setOutput] = useState("");
+  const [error, setError] = useState("");
 
   function handleEditorDidMount(editor) {
     editorRef.current = editor;
@@ -15,8 +17,9 @@ export default function CodeEditor(){
     return value;
   }
 
-  const sendCodeSample = async () => {
+const sendCodeSample = async () => {
     const code = getEditorValue()
+
     try {
       const response = await fetch('http://localhost:9000/api/submitCode', {
             method: 'PUT',
@@ -26,18 +29,18 @@ export default function CodeEditor(){
             body: JSON.stringify({ codeSample: {code}}),
       });
       const result = await response.json();
-      console.log('PUT request (submitCode) returned:', result.status);
       if (result.status == "received") {
-        console.log("out", result.out, "err", result.err);
+        setOutput(result.out || "");
+        setError(result.err || "");
       }
 
     } catch(error) {
-      console.error('PUT request (submitCode) failed:', error);
+      setError(error.message);
     }
   };
   
   return (
-    <>
+    <div>
       <Editor
         height='500px'
         width='500px'
@@ -47,7 +50,21 @@ export default function CodeEditor(){
         onMount={handleEditorDidMount}
       />
       <button onClick={sendCodeSample}>Run!</button>
-    </>
+      <div style={{ 
+        backgroundColor: "#1e1e1e", 
+        color: "#d4d4d4", 
+        padding: "10px", 
+        marginTop: "10px", 
+        height: "150px", 
+        width: "500px",
+        fontFamily: "monospace",
+        borderRadius: "4px",
+        overflowY: "auto"
+      }}>
+        {output && <div>{output}</div>}
+        {error && <div style={{color:"red"}}>{error}</div>}
+      </div>
+    </div>
   );
 
 }
