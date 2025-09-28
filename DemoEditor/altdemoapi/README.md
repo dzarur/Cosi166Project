@@ -50,4 +50,3 @@ To run the demo, execute the following:
 ### api.py
 ## Licenses
 OpenAI API is protected by Apache License
-
