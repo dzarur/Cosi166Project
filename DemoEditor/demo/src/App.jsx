@@ -3,6 +3,8 @@ import "./App.css";
 import TeacherMode from "./components/TeacherMode";
 import CodeEditor from "./components/CodeEditor";
 import StudentMode from "./components/StudentMode";
+import MainNotes from "./components/mainNotes";
+import Sidebar from "./components/sidebar";
 
 function App() {
   const [teacherMode, setTeacherMode] = useState(false);
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <>
-      <TeacherMode
+      {/* <TeacherMode
         teacherMode={teacherMode}
         setTeacherMode={setTeacherMode}
         onSendQuestion={handleSendQuestion}  
@@ -24,7 +26,14 @@ function App() {
 
 
       <hr />
-      <CodeEditor />
+      <CodeEditor /> */}
+
+      <Sidebar/>
+      <MainNotes />
+
+      
+
+
     </>
   );
 }
