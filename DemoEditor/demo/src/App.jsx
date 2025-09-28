@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import TeacherMode from "./components/TeacherMode";
 import StudentMode from "./components/StudentMode";
-import MainNotes from "./components/mainNotes";
-import Sidebar from "./components/sidebar";
+import MainNotes from "./components/MainNotes";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [teacherMode, setTeacherMode] = useState(false);
@@ -19,7 +19,6 @@ function App() {
       {!teacherMode && ( <StudentMode />)}
 
       <hr />
-      <CodeEditor />
 
 
       {/* the jsx below is for the notes app please do not touch!!!!!! */}
