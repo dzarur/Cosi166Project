@@ -1,5 +1,3 @@
-# Start coding here!
-
 def main():
     print("Hello World")
 
