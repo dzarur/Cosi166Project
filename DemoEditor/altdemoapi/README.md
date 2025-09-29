@@ -39,7 +39,7 @@ Create .env and .gitignore files
 <br>
 The contents of both will be covered in our meeting 9/26.
 
-## Running the Demo
+## Running the Demo API
 To run the demo, execute the following:
 `python run.py`
 <br>

@@ -21,8 +21,6 @@ export default function StudentMode(){
             
             if (result.status !== "queue empty") {
                 setTeacherQuestion(result.prompt);
-            } else {
-                setTeacherQuestion("");
             }
         } catch (error) {
             console.error('Failed to fetch problem:', error);

@@ -10,21 +10,21 @@ function App() {
 
   return (
     <>
-      {/* <TeacherMode
+      <TeacherMode
         teacherMode={teacherMode}
         setTeacherMode={setTeacherMode}
       />
 
       {!teacherMode && ( <StudentMode />)}
 
-      <hr /> */}
+      <hr />
 
       {/* the jsx below is for the notes app please do not touch!!!!!! */}
 
-      <div className="notes_app">
+      {/* <div className="notes_app">
         <Sidebar />
         <MainNotes />
-      </div>
+      </div> */}
     </>
   );
 }
