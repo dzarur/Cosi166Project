@@ -1,4 +1,6 @@
 import yaml
+import os
+from dotenv import load_dotenv
 
 
 class ErrorTags:
@@ -29,23 +31,29 @@ def load_errors():
 
 
 # meta
-error_tags = ErrorTags()
-config_tags = ConfigTags()
-errors = load_errors()
-config = load_config()
+ERROR_TAGS = ErrorTags()
+CONFIG_TAGS = ConfigTags()
+ERRORS = load_errors()
+CONFIG = load_config()
+load_dotenv()
+OPEN_AI_API_KEY = os.getenv("OPEN_AI_API_KEY")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_DATABASE = os.getenv("DB_DATABASE")
 
 
 def increment_ai_samples():
-    old_samples = config[config_tags.AI_SAMPLES]
-    config[config_tags.AI_SAMPLES] += 1
+    old_samples = CONFIG[CONFIG_TAGS.AI_SAMPLES]
+    CONFIG[CONFIG_TAGS.AI_SAMPLES] += 1
     return old_samples
 
 
 def reset_ai_samples(num: int):
-    config[config_tags.AI_SAMPLES] = num
+    CONFIG[CONFIG_TAGS.AI_SAMPLES] = num
 
 
 def dump_conf(spec_config=None):
-    to_dump = config if not spec_config else spec_config
+    to_dump = CONFIG if not spec_config else spec_config
     with open("conf.yaml", "w") as conf_file:
         yaml.safe_dump(to_dump, conf_file)

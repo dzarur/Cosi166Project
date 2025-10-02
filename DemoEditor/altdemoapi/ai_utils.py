@@ -1,6 +1,4 @@
 from openai import OpenAI
-import os
-from dotenv import load_dotenv
 import load
 import re
 
@@ -67,7 +65,7 @@ class ResponseTemplate:
 
     def str_to_template(self):
         if len(self.text) == 0 or self.text is None:
-            raise Exception(load.errors[load.error_tags.NULL_RESPONSE])
+            raise Exception(load.ERRORS[load.ERROR_TAGS.NULL_RESPONSE])
         else:
             lines = re.split(r"\n+", self.text)
             curr_section = None
@@ -79,7 +77,7 @@ class ResponseTemplate:
                 elif line == "**Skills:**":
                     curr_section = self.skill_section
                 elif curr_section is None:
-                    raise Exception(load.errors[load.error_tags.AI_RESPONSE_FORMAT])
+                    raise Exception(load.ERRORS[load.ERROR_TAGS.AI_RESPONSE_FORMAT])
                 else:
                     curr_section.append(line)
 
@@ -95,9 +93,9 @@ class Agent:
     """
 
     def __init__(self):
-        load_dotenv()
-        self.api_key = os.getenv("OPEN_AI_API_KEY")
-        self.ai_context = load.config[load.config_tags.AI_CONTEXT]
+
+        self.api_key = os.getenv()
+        self.ai_context = load.CONFIG[load.CONFIG_TAGS.AI_CONTEXT]
         self.client = OpenAI(api_key=self.api_key,)
 
     @staticmethod
