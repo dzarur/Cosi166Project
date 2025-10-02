@@ -47,7 +47,7 @@ Login to mysql with your root login (default login -- replace root with your roo
 <br>
 Create the database for the project
 <br>
-`$ CREATE DATABASE learning_app`
+`$ CREATE DATABASE learning_app;`
 <br>
 Create user for interfacing with database
 <br>
