@@ -39,6 +39,24 @@ Create .env and .gitignore files
 <br>
 The contents of both will be covered in our meeting 9/26.
 
+### Step 3: mysql
+
+Login to mysql with your root login (default login -- replace root with your root username)
+<br>
+`$ mysql -u "root" -p`
+<br>
+Create the database for the project
+<br>
+`$ CREATE DATABASE learning_app`
+<br>
+Create user for interfacing with database
+<br>
+`$ CREATE USER 'app_connect'@'localhost' IDENTIFIED BY 'cosi-166-connpass';`
+<br>
+Grant privileges for project database
+<br>
+`$ GRANT ALL PRIVILEGES ON learning_app TO 'app_connect'@'localhost';`
+<br>
 ## Running the Demo API
 To run the demo, execute the following:
 `python run.py`
