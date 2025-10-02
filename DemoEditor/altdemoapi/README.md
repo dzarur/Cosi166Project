@@ -55,7 +55,7 @@ Create user for interfacing with database
 <br>
 Grant privileges for project database
 <br>
-`$ GRANT ALL PRIVILEGES ON learning_app TO 'app_connect'@'localhost';`
+`$ GRANT ALL PRIVILEGES ON learning_app.* TO 'app_connect'@'localhost';`
 <br>
 ## Running the Demo API
 To run the demo, execute the following:
