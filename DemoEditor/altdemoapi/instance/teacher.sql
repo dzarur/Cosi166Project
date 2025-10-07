@@ -1,0 +1,6 @@
+CREATE TABLE Teacher (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email_address VARCHAR(100) UNIQUE NOT NULL
+);
